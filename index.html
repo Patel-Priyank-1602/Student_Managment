@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Database</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h2>Student Database Management</h2>
+
+    <div class="selection-container">
+        <label for="actionSelect">Select Action:</label>
+        <select id="actionSelect" onchange="toggleForm()">
+            <option value="">--Select--</option>
+            <option value="insert">Insert</option>
+            <option value="search">Search</option>
+            <option value="update">Update</option>
+            <option value="delete">Delete</option>
+        </select>
+    </div>
+
+    <!-- Insert Student Form -->
+    <div id="insertForm" class="form-container" style="display: none;">
+        <h3>Insert Student</h3>
+        <form id="studentForm">
+            <input type="number" id="roll_no" placeholder="Roll No" required>
+            <input type="text" id="name" placeholder="Name" required>
+            <input type="text" id="branch" placeholder="Branch" required>
+            <input type="number" id="sem" placeholder="Semester" required>
+            <input type="number" step="0.01" id="cgpa" placeholder="CGPA" required>
+            <input type="text" id="hobby" placeholder="Hobby" required>
+            <button type="submit">Add Student</button>
+        </form>
+    </div>
+
+    <!-- Search Student Form -->
+    <div id="searchForm" class="form-container" style="display: none;">
+        <h3>Search Student</h3>
+        <input type="number" id="search_roll_no" placeholder="Enter Roll No">
+        <button onclick="getStudent()">Search</button>
+        <h3>Student Details:</h3>
+        <div id="studentDetails"></div>
+    </div>
+
+    <!-- Update Student Form -->
+    <div id="updateForm" class="form-container" style="display: none;">
+        <h3>Update Student</h3>
+        <form>
+            <input type="number" id="update_roll_no" placeholder="Enter Roll No" required>
+            <input type="text" id="update_name" placeholder="Name">
+            <input type="text" id="update_branch" placeholder="Branch">
+            <input type="number" id="update_sem" placeholder="Semester">
+            <input type="number" step="0.01" id="update_cgpa" placeholder="CGPA">
+            <input type="text" id="update_hobby" placeholder="Hobby">
+            <button type="submit">Update Student</button>
+        </form>
+    </div>
+
+    <!-- Delete Student Form -->
+    <div id="deleteForm" class="form-container" style="display: none;">
+        <h3>Delete Student</h3>
+        <input type="number" id="delete_roll_no" placeholder="Enter Roll No">
+        <button onclick="deleteStudent()">Delete</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
